@@ -10,12 +10,34 @@ Consider a php form with columns id,first_name,last_name,email_id .Insert follow
 <html>
     <head>
         <title>INT 301 Assignment</title>
+        <style>
+            .button
+            {
+                background-color: skyblue;
+                border-radius: 10px;
+                border-color: skyblue;
+                color:white;
+            }
+        th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: orange;
+            color: white;
+            }
+        #users td,#users tr 
+            {
+            border: 1px solid #ddd;
+            padding: 8px;
+            background-color: skyblue;
+            }
+        </style>
         <?php
         //php code to connect to the database int301 as root
          $servername = "localhost";
          $username = "root";
-         $password = "5689";
-         $dbname = "int301";
+         $password = "";
+         $dbname = "INT301";
          // Create connection
          $conn = new mysqli($servername, $username, $password,$dbname);
          
@@ -35,17 +57,17 @@ Consider a php form with columns id,first_name,last_name,email_id .Insert follow
         ?>
     </head>
     <body>
-    
+        <marquee>Int 301 Assignment</marquee>
         <form method="POST">
             <table>
-                <tr><td><label for="firstName">First Name</label></td><td><input required type="text" placeholder="enter your first name"name="firstName" id="firstName"></td></tr>
-                <tr><td><label for="lastName">Last Name</label></td><td><input required type="text" placeholder="enter your last name" name="lastName" id="lastName"></td></tr>
-                <tr><td><label for="emailId">Email Id</label></td><td><input required type="email" placeholder="enter your email Id" name="emailId" id="emailId"></td></tr>
-                <tr><td colspan="2" align="center"><input type="submit" name="submit" value="submit"></td></tr>
+                <tr><td><label for="firstName">First Name</label></td><td><input classs="input" required type="text" placeholder="enter your first name"name="firstName" id="firstName"></td></tr>
+                <tr><td><label for="lastName">Last Name</label></td><td><input classs="input" required type="text" placeholder="enter your last name" name="lastName" id="lastName"></td></tr>
+                <tr><td><label for="emailId">Email Id</label></td><td><input classs="input" required type="email" placeholder="enter your email Id" name="emailId" id="emailId"></td></tr>
+                <tr><td colspan="2" align="center"><input type="submit" name="submit" value="submit" class="button"></td></tr>
             </table>
         </form>
-        <h2>user details in below table are sorted in descending order of first name </h2>
-        <table border="1" align="center">
+        <h2 style="text-align : center">User details in below table are sorted in descending order of first name </h2>
+        <table border="1" align="center" id="users">
 
             <caption><strong>User Details</strong></caption>
             <tr><th>Id</th><th>First Name</th><th>Last Name</th><th>Email Id</th></tr>
