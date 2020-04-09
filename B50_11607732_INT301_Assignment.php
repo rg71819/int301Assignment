@@ -11,11 +11,11 @@ Consider a php form with columns id,first_name,last_name,email_id .Insert follow
     <head>
         <title>INT 301 Assignment</title>
         <?php
-        //php code to connect to the database
+        //php code to connect to the database int301 as root
          $servername = "localhost";
          $username = "root";
-         $password = "";
-         $dbname = "INT301";
+         $password = "5689";
+         $dbname = "int301";
          // Create connection
          $conn = new mysqli($servername, $username, $password,$dbname);
          
@@ -35,19 +35,22 @@ Consider a php form with columns id,first_name,last_name,email_id .Insert follow
         ?>
     </head>
     <body>
+    
         <form method="POST">
             <table>
-                <tr><td><label for="firstName">First Name</label></td><td><input required type="text" name="firstName" id="firstName"></td></tr>
-                <tr><td><label for="lastName">Last Name</label></td><td><input required type="text" name="lastName" id="lastName"></td></tr>
-                <tr><td><label for="emailId">Email Id</label></td><td><input required type="email" name="emailId" id="emailId"></td></tr>
+                <tr><td><label for="firstName">First Name</label></td><td><input required type="text" placeholder="enter your first name"name="firstName" id="firstName"></td></tr>
+                <tr><td><label for="lastName">Last Name</label></td><td><input required type="text" placeholder="enter your last name" name="lastName" id="lastName"></td></tr>
+                <tr><td><label for="emailId">Email Id</label></td><td><input required type="email" placeholder="enter your email Id" name="emailId" id="emailId"></td></tr>
                 <tr><td colspan="2" align="center"><input type="submit" name="submit" value="submit"></td></tr>
             </table>
         </form>
+        <h2>user details in below table are sorted in descending order of first name </h2>
         <table border="1" align="center">
+
             <caption><strong>User Details</strong></caption>
             <tr><th>Id</th><th>First Name</th><th>Last Name</th><th>Email Id</th></tr>
             <?php
-            //code to display the contents of the database as a table
+            //code to display the contents of the database as a table in descending order of first name
             $q="select * from users order by firstName desc";
             $result=mysqli_query($conn, $q);
           while($row = mysqli_fetch_assoc($result)) 
